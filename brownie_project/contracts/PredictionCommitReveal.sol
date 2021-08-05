@@ -18,7 +18,7 @@ contract PredictionCommitReveal {
         uint lowerLimit;
         uint numPredictions;
         mapping(address => PredictionData) AddressToPredictionData;
-        
+        address[] predictionAddresses; 
     }
     
     struct PredictionData {
@@ -85,11 +85,25 @@ contract PredictionCommitReveal {
         
         questionData.AddressToPredictionData[msg.sender].prediction = _prediction; 
         questionData.AddressToPredictionData[msg.sender].hasRevealed = true;
+        questionData.predictionAddresses.push(msg.sender);
+
     }
     
+    //return an array containing the addresses of the users for a given question 
+    function getAddresses(uint _questionID) public view returns (address[] memory) {
+        require(_questionID < nextID);
+        return indexToQuestion[_questionID].predictionAddresses;
+    }
     
-
+    //return prediction for a given address and question
+    function getPrediction(uint _questionID, address _address) public view returns (uint) {
+        require(_questionID < nextID);
+        return indexToQuestion[_questionID].AddressToPredictionData[_address].prediction; 
+    }
+    
     function getTime() public view returns (uint){
         return block.timestamp;
     }
+    
 } 
+  
