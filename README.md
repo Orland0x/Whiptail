@@ -20,8 +20,20 @@ We believe that the true value of forecasting goes far beyond point estimates of
 
 A modal value of about 30 gwei is predicted by the forecasters but what is more interesting is the long tail on the right of the distribution. This shows that the forecasters assign non-negligible probabilities to gas prices that are far from the point prediction of 30.  This tail information is in many contexts far more valuable than the peak. For example, if you are a protocol that has smart contracts which depend on the gas price remaining below 100, having an estimate on the likelihood of it exceeding 100 would be immensely valuable to you.
 
-Our goal with Whiptail is to create a decentralized forecasting engine that can provide robust and on demand forecasts in a wide range of different domains. We beleive there would be interest in these forecasts from various organizations including hedge funds, bookies, governments, and even other DAOs!. 
+Our goal with Whiptail is to create a decentralized forecasting engine that can provide robust and on demand forecasts in a wide range of different domains. We believe there would be interest in these forecasts from various organizations including hedge funds, bookies, governments, and even other DAOs. Additionally, the information could be used to trade in prediction markets directly to make profit for the DAO, however this would require an in house trading team and would therefore be significantly more difficult to set up (initially at least!).
 
+### Forecast Submission Mechanism
+
+If the forecasts produced by the DAO were public then there would be a free-rider problem that would emerge, as why would an organization pay for a forecast if they can just get someone else to pay and then use just extract the forecast from the smart contract anyway. Additionally, some organisations, particularly hedge funds, would like to keep the information private as it is valuable IP for them.
+
+We therefore prepose a private submission mechanism that utilizes Public-key Cryptography. It will work as follows: 
+1. A public and private key pair is generated off chain.
+2. The public key is sent on chain and the private key is sent to the buyer of the forecast off chain.
+3. All forecasters that are participating will encrypt their forecast using the public key and then send the encrypted message on chain. 
+4. Once all encrypted forecasts are in, the buyer can then take them all of chain and decrypt them using the private key. 
+5. The averaging operation can then occur off chain to produce the overall forecast in a private yet trustless way. 
+ 
+ 
 
 ### Reputation Score Accumulation 
 
@@ -33,7 +45,7 @@ To allow people to build up their scores, we prepose a series of prediction comp
 3. Users will send their predictions and blinding factors to the contract during the reveal window and the hash will be performed on chain to prove that it is identical to their commit.
 4. Once the event in question has occured, the contract owner will submit the true answer to the contract, allowing a score to be calculated for each user.
 
-As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Over a long enough time period, we believe that this should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent.  
+As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Our scoring algorithm will be weakly negative sum which, over a long enough time period, should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent.  
 
 ![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 
