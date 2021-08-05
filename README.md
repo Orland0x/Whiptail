@@ -24,15 +24,16 @@ Our goal with Whiptail is to create a decentralized forecasting engine that can 
 
 ### Forecast Submission Mechanism
 
-If the forecasts produced by the DAO were public then there would be a free-rider problem that would emerge, as why would an organization pay for a forecast if they can just get someone else to pay and then use just extract the forecast from the smart contract anyway. Additionally, some organisations, particularly hedge funds, would like to keep the information private as it is valuable IP for them.
+If the forecasts produced by the DAO were public then there would be a free-rider problem that would emerge, as why would an organization pay for a forecast if they can just get someone else to pay and then just extract the forecast from the smart contract anyway. Additionally, some organisations, particularly hedge funds, would like to keep the information private as it is valuable IP for them.
 
 We therefore prepose a private submission mechanism that utilizes Public-key Cryptography. It will work as follows: 
 1. A public and private key pair is generated off chain.
 2. The public key is sent on chain and the private key is sent to the buyer of the forecast off chain.
 3. All forecasters that are participating will encrypt their forecast using the public key and then send the encrypted message on chain. 
 4. Once all encrypted forecasts are in, the buyer can then take them all of chain and decrypt them using the private key. 
-5. The averaging operation can then occur off chain to produce the overall forecast in a private yet trustless way. 
- 
+5. The averaging operation can then occur off chain by the buyer to produce the overall forecast in a private yet trustless way. Note this also allows the buyer to aggregate in whatever way they choose. The buyer could decide to weight the average by the reputation score of each forecaster for example. 
+
+The forecasts produced by the DAO may be for events long into to future and therefore the DAO would require payement before the event has occured. For this reason 
  
 
 ### Reputation Score Accumulation 
