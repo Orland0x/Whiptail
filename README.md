@@ -18,7 +18,9 @@ We believe that the true value of forecasting goes far beyond point estimates of
 
 ![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/metaculusgaspred.png)
 
-A modal value of about 30 gwei is predicted by the forecasters but what is more interesting is the long tail on the right of the distribution. This shows that the forecasters assign non-negligible probabilities to gas prices that are far from the point prediction of 30.  This tail information is in many contexts far more valuable than the peak. For example, if you are a protocol that has smart contracts which depend on the gas price remaining below 100, having an estimate on the likelihood of it exceeding 100 would be immensely valuable. 
+A modal value of about 30 gwei is predicted by the forecasters but what is more interesting is the long tail on the right of the distribution. This shows that the forecasters assign non-negligible probabilities to gas prices that are far from the point prediction of 30.  This tail information is in many contexts far more valuable than the peak. For example, if you are a protocol that has smart contracts which depend on the gas price remaining below 100, having an estimate on the likelihood of it exceeding 100 would be immensely valuable to you.
+
+Our goal with Whiptail is to create a decentralized forecasting engine that can provide robust and on demand forecasts in a wide range of different domains. We beleive there would be interest in these forecasts from various organizations including hedge funds, bookies, governments, and even other DAOs!. 
 
 
 ### Reputation Score Accumulation 
