@@ -35,6 +35,8 @@ To allow people to build up their scores, we prepose a series of prediction comp
 
 As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Over a long enough time period, we believe that this should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent.  
 
+    h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+
 
 ### Notes
 
