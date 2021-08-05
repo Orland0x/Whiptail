@@ -37,6 +37,9 @@ As a team we will continually post competition questions, therefore allowing use
 
 ![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 
+
+$ \sum_{\forall i}{x_i^{2}} $
+
 ### Notes
 
 This idea is motivated by the site Metaculus which does a similar thing but has no way to monetize or keep the data private:
