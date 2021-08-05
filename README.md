@@ -14,6 +14,9 @@ We therefore propose a forecasting DAO to take advantage of this fact which woul
 
 We believe that forecasting can go 
 
+![alt text](http://url/to/img.png)
+
+
 ### Reputation Score Accumulation 
 
 To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut off of a reputation score of at least X in order to qualify for the forecasting DAO. 
