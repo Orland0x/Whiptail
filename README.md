@@ -12,7 +12,10 @@ A well documented fact within the field of forecasting (see the book - Superfore
 
 We therefore propose a forecasting DAO to take advantage of this fact which would work as follows: A group of forecasters all create forecasts for an event and send them to a smart contract. The overall forecast would be the average of all the individuals forecasts. This forecast could then be used to make money in prediction markets or sold off to 3rd parties such as hedge funds, profits would then be distributed to the forecasters through another smart contract. 
 
-We believe that forecasting can go 
+We believe that the true value of forecasting goes far beyond point estimates of events. In fact the most value lies in the full distribution (more specifically, a posterior distribution - for the bayesian inclined readers) over event outcomes and not just the most likely outcome.  
+
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/metaculseip1559.png)
+
 
 ### Reputation Score Accumulation 
 
