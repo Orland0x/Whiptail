@@ -21,7 +21,7 @@ To allow people to build up their scores, we prepose a series of prediction comp
 4. Once the event in question has occured, the contract owner will submit the true answer to the contract, allowing a score to be calculated for each user. 
 
 
-
+### Notes
 
 This idea is motivated by the site Metaculus which does a similar thing but has no way to monetize or keep the data private:
 https://www.metaculus.com/questions/
