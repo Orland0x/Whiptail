@@ -15,8 +15,10 @@ We therefore propose a forecasting DAO to take advantage of this fact which woul
 To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut off of a reputation score of at least X in order to qualify for the forecasting DAO. 
 
 To allow people to build up their scores, we prepose a series of prediction competitions which users predict various events that will occur in the future and recieve positive or negative points depending on how close they are to the true answer when the event occurs. This will be done through a commit reveal smart contract that works as follows: 
-1. f;wkf;
-2. 
+1. A question is submitted by the smart contract owners (the Whiptail team). Eg "How many new UK covid cases will the UK government declare on the 17th August."  The creator will also specify a commit period where all hash commits must take place, a reveal period where all reveals must take place, and finally a range for the prediction that will cover the expected range of the answer.  
+2. Users will generate hashes of their predictions along with blinding factors and commit it to the smart contract during the commit window.
+3. Users will send their predictions and blinding factors to the contract during the reveal window and the hash will be performed on chain to prove that it is identical to their commit.
+4. Once the event in question has occured, the contract owner will submit the true answer to the contract, allowing a score to be calculated for each user. 
 
 
 
