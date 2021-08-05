@@ -14,7 +14,7 @@ We therefore propose a forecasting DAO to take advantage of this fact which woul
 
 We believe that forecasting can go 
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/metaculseip1559.png)
 
 
 ### Reputation Score Accumulation 
