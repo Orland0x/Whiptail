@@ -31,14 +31,14 @@ We therefore prepose a private submission mechanism that utilizes Public-key Cry
 2. The public key is sent on chain and the private key is sent to the buyer of the forecast off chain.
 3. All forecasters that are participating will encrypt their forecast using the public key and then send the encrypted message on chain. 
 4. Once all encrypted forecasts are in, the buyer can then take them all of chain and decrypt them using the private key. 
-5. The averaging operation can then occur off chain by the buyer to produce the overall forecast in a private yet trustless way. Note this also allows the buyer to aggregate in whatever way they choose. The buyer could decide to weight the average by the reputation score of each forecaster for example. 
+5. The averaging operation can then occur off chain by the buyer to produce the overall forecast in a private yet trustless way. Note this also allows the buyer to aggregate the distributions in whatever way they choose. The buyer could decide to weight the average by the reputation score of each forecaster for example. 
 
-The forecasts produced by the DAO may be for events long into to future and therefore the DAO would require payement before the event has occured. For this reason 
+The forecasts produced by the DAO may be for events long into to future and therefore the DAO would require payement before the event has occured. For this reason the payment to the forecasters cannot be a function of their forecast accuracy. However the buyer would still need confidence that the forecasts they paid for are high quality. This leads us to the concept of a reputation score for forecasters. 
  
 
 ### Reputation Score Accumulation 
 
-To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut off of a reputation score of at least X in order to qualify for the forecasting DAO. 
+To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut off of a reputation score of at least X in order to qualify for the forecasting DAO where members are paid for their forecasts. 
 
 To allow people to build up their scores, we prepose a series of prediction competitions which users predict various events that will occur in the future and recieve positive or negative points depending on how close they are to the true answer when the event occurs. This will be done through a commit reveal smart contract that works as follows: 
 1. A question is submitted by the smart contract owners (the Whiptail team). Eg "How many new UK covid cases will the UK government declare on the 17th August."  The creator will also specify a commit period where all hash commits must take place, a reveal period where all reveals must take place, and finally a range for the prediction that will cover the expected range of the answer.  
@@ -46,7 +46,7 @@ To allow people to build up their scores, we prepose a series of prediction comp
 3. Users will send their predictions and blinding factors to the contract during the reveal window and the hash will be performed on chain to prove that it is identical to their commit.
 4. Once the event in question has occured, the contract owner will submit the true answer to the contract, allowing a score to be calculated for each user.
 
-As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Our scoring algorithm will be weakly negative sum which, over a long enough time period, should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent.  
+As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Our scoring algorithm will be weakly negative sum which, over a long enough time period, should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent. The core idea here is to use verifiable events to find people that are strong at forecasting un-verifiable events and record this through an on chain score.
 
 ![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 
