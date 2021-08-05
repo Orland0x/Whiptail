@@ -14,7 +14,7 @@ We therefore propose a forecasting DAO to take advantage of this fact which woul
 
 We believe that the true value of forecasting goes far beyond point estimates of events. In fact the most value lies in the full distribution (more specifically, a posterior distribution - for the bayesian inclined readers) over event outcomes and not just the most likely outcome.  
 
-![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/metaculseip1559.png)
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/metaculusgaspred.png)
 
 
 ### Reputation Score Accumulation 
