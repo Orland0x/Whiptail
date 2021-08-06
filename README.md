@@ -53,6 +53,12 @@ As a team we will continually post competition questions, therefore allowing use
 
 $ \sum_{\forall i}{x_i^{2}} $
 
+
+### Governance Token 
+
+In order to transition to a proper DAO with decentralized governance, we will likely eventually need a token. The reputation score could potentially work something like a token stake, but that does not necessarily align incentives optimally. The emissions for this token could occur through doing well in the DAOs prediction competitions -  Prediction mining if you like. This token could then be used to vote and also accrue some value from profits made by the DAO (eg 70% of profits from selling forecasts go to the forecasters while 30% is used to perform buybacks of the token). 
+
+
 ### Notes
 
 This idea is motivated by the site Metaculus which does a similar thing but has no way to monetize or keep the data private:
