@@ -29,7 +29,7 @@ contract PredictionCommitReveal {
         
     }
     
-    mapping(uint => QuestionData) public indexToQuestion; // Maps the ID of a question to its QuestionData struct
+    mapping(uint => QuestionData) indexToQuestion; // Maps the ID of a question to its QuestionData struct
     
     constructor() {
         owner = msg.sender;
@@ -89,6 +89,20 @@ contract PredictionCommitReveal {
 
     }
     
+    function getNumOfQuestions() public view returns(uint) {
+        return nextID;
+    }
+
+    //return the data for a question given the ID
+    function getQuestion(uint _questionID) public view returns (string memory, uint64, uint64, uint, uint, uint) {
+        return (indexToQuestion[_questionID].text, 
+        indexToQuestion[_questionID].commitPeriodEndTime,
+        indexToQuestion[_questionID].revealPeriodEndTime,
+        indexToQuestion[_questionID].lowerLimit, 
+        indexToQuestion[_questionID].upperLimit,
+        indexToQuestion[_questionID].numPredictions);
+    }
+
     //return an array containing the addresses of the users for a given question 
     function getAddresses(uint _questionID) public view returns (address[] memory) {
         require(_questionID < nextID);
@@ -106,4 +120,3 @@ contract PredictionCommitReveal {
     }
     
 } 
-  
