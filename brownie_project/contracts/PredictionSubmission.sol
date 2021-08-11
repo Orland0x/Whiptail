@@ -59,6 +59,7 @@ contract PredictionSubmission {
         
         questionData.AddressToPrediction[msg.sender] = _prediction; 
         questionData.predictionAddresses.push(msg.sender);
+        questionData.numPredictions++;
 
     }
     
