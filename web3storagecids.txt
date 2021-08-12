@@ -1,0 +1,117 @@
+#Ways to access these files are :
+https://dweb.link/ipfs/YOUR_CID
+Or
+https://<CID>.ipfs.dweb.link/
+
+#Required files are added to:
+web3storage at below CID's:
+
+cmunbi.eot
+Uploading files from cmunbi.eot
+Content added with CID: bafybeihjxevjketd4g4ksfznn7teljyxxlm37nvrrdn7acox66uflvpn2a
+
+cmunbi.ttf
+Uploading files from cmunbi.ttf
+Content added with CID: bafybeihyx775u2ydfr6e2bwj67ge2xl62cptqtrio5atzscq4d4kd53pny
+
+cmunbi.woff
+Uploading files from cmunbi.woff
+Content added with CID: bafybeih3f4o7ljojipr3ynrkpu4bsf2ama5bwsk3unxphn54aelu3ygpx4
+
+cmunbx.eot
+Uploading files from cmunbx.eot
+Content added with CID: bafybeidoe7lojg55ta6bv6hbpcjbvpfzhndvtymd2gww2wkaeqqqnajmyy
+
+cmunbx.ttf
+Uploading files from cmunbx.ttf
+Content added with CID: bafybeib44b3dcipri7j3zyrcvhvvfxhgrspf2pekqrcodwpycv64gxww54
+
+cmunbx.woff
+Uploading files from cmunbx.woff
+Content added with CID: bafybeic47otmsdau4a5euisv6dctqyfz4ibkiureecpaqrsosui2jfiylm
+
+cmunrm.eot
+Uploading files from cmunrm.eot
+Content added with CID: bafybeifrfvl6t5eaobbltqvmqfolzy4bdokzxpbnms5olkn352kdohlvem
+
+cmunrm.ttf
+Uploading files from cmunrm.ttf
+Content added with CID: bafybeiegyhvtf75qusxpcz6obqlnzy7dd4kzjgk6azjio5dlj5z5tw6tua
+
+cmunrm.woff
+Uploading files from cmunrm.woff
+Content added with CID: bafybeihpmb3clla772ab5sa35xpa33dn2avx5ram3jrtjlt36uww2l454a
+
+cmunti.eot
+Uploading files from cmunti.eot
+Content added with CID: bafybeicufciekdqh3s6gekpoqyybpa5smwmttyiof4h6mat4y5dsn35lzi
+
+cmunti.ttf
+Uploading files from cmunti.ttf
+Content added with CID: bafybeiaf2vaj4bypvyzkq6ejnpy6yti6evjtr37gu2o3fwu7kk2kvcw4ci
+
+cmunti.woff
+Uploading files from cmunti.woff
+Content added with CID: bafybeihhdkddalicboclnblkxtxaarkzgzhsnx4zplwhjtenonavdpitdu
+
+cmunti.svg
+Uploading files from cmunti.svg
+Content added with CID: bafybeiakva2rw5mnz5sitwadkmpf33y5qecr2rrasoe7mznnf75rujwrhq
+
+cmunrm.svg
+Uploading files from cmunrm.svg
+Content added with CID: bafybeihmobzepi4eh2s2jurpxubtk4shwent77atcxc7ktvxsbonacl2uy
+
+cmunbx.svg
+Uploading files from cmunbx.svg
+Content added with CID: bafybeifnk4th3ipyxl4tl5l2a4grxkoqfksa64mpbdg4ijq6a2456vnv7m
+
+cmunbi.svg
+Uploading files from cmunbi.svg
+Content added with CID: bafybeifoxb7w4j3aqyldew73ea7c4ajtkb5ec4dm7kw5ebamkwnnn3urtu
+
+cmunbl.eot
+Uploading files from cmunbl.eot
+Content added with CID: bafybeiaiatjolc2zelavkbjoenoby2xyo75sfnhi75j2gctcrjwn74yb3u
+
+cmunbl.ttf
+Uploading files from cmunbl.ttf
+Content added with CID: bafybeiex5fbwnsf3s7m57i2ptpybaa3tr4gepg23xlm5e4lkcmaqcqvx7y
+
+cmunbl.woff
+Uploading files from cmunbl.woff
+Content added with CID: bafybeicg4rvr4emq4lxbc37wis3d4ntl37iwaw5ppqyho4g6r3mht265om
+
+cmunsl.eot
+Uploading files from cmunsl.eot
+Content added with CID: bafybeibibd2ijvtiaglykqqiih2nfts7vko3fa4poqqreeuskxcircwnga
+
+cmunsl.ttf
+Uploading files from cmunsl.ttf
+Content added with CID: bafybeicbvmxk3oszzg6c5jiorrnricl3xg5fzeb4sxph7mjr5bjbtmniaa
+
+cmunsl.woff
+Uploading files from cmunsl.woff
+Content added with CID: bafybeib3ginmxx5g7szwtdkskwhjpiqr4wx25kcpatt2k4gjvjylmqspgu
+
+cmun-serif-slanted.css
+Uploading files from cmun-serif-slanted.css
+Content added with CID: bafybeihsxnfcufvb3ss2nbaymm2h5k6e3kmcqdk4xqk6zdfsf7aiweexne
+
+cmunsl.svg
+Uploading files from cmunsl.svg
+Content added with CID: bafybeigce3jhe3aj4jidc52adshisyzw673bm7dhniiqyukhekcjxqbyyi
+
+cmunbl.svg
+Uploading files from cmunbl.svg
+Content added with CID: bafybeifysmxlkapknnpbmomv6riaf3gubmdmzi2yx5iuyw3h7zvdjwyeru
+
+style.css
+Uploading files from style.css
+Content added with CID: bafybeibbhllg2p5shyv3dsvjymjspu3f7uz3z5njbv5p2jqfhorvp5ozke
+
+#If have to manually upload more files can just go web3.storage
+using mail id whiptail999@protonmail.com
+You will get a link sent to the mail id password : whip369tail 
+Created above for a common mail which can be shared for any login has to be used only for this purpose, but pleaes make sure of the CID of the file post upload
+
