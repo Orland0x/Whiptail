@@ -50,6 +50,9 @@ To allow people to build up their scores, we prepose a series of prediction comp
 
 As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Our scoring algorithm will be weakly negative sum which, over a long enough time period, should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent. The core idea here is to use verifiable events to find people that are strong at forecasting un-verifiable events and record this through an on chain score.
 
+
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/predictionCurve.png)
+
 ![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 
 
