@@ -1,9 +1,11 @@
 # Whiptail
-A DAO for forecasting that harnesses the wisdom of the crowd
+A DAO for forecasting that harnesses the wisdom of the crowd. 
 
-brownie_project contains the core commit reveal smart contract where one can submit questions and answers
+The Brownie development was used for the creation and testing of the smart contracts used in the project. The contracts have been deployed to Ropsten test net and reside at the following locations: 
 
-scaffold-eth is a full example dapp that we should be able to modify with our own contract(s) and front end
+PredictionSubmission.sol: 0xa505E0D24Ef6d65cD57ad1c6Bb17EBd3547934Fe
+ReputationScore.sol: 0x825477C09DD57bb72298c3161B26eA577B2D0EDe 
+
 
 
 ### Overview
