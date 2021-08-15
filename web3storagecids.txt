@@ -110,6 +110,38 @@ style.css
 Uploading files from style.css
 Content added with CID: bafybeibbhllg2p5shyv3dsvjymjspu3f7uz3z5njbv5p2jqfhorvp5ozke
 
+index.html
+Uploading files from index.html
+Content added with CID: bafybeig4x2je2oqu6qukggrmtzaayhdskqpyatzfkxju7u4ymj34idqyca
+
+about.html
+Uploading files from about.html
+Content added with CID: bafybeih3jipowcu3kgnzsu6rydaxxoj6ztmghjrqo5cmbdbjrm27hmy2hy
+
+leaderboard.html
+Uploading files from leaderboard.html
+Content added with CID: bafybeif4kglk2piczz5bmbksflouodalqgysgnht4skywytod53sptazx4
+
+whiptail_abi.js
+Uploading files from whiptail_abi.js
+Content added with CID: bafybeiejp26j7rqpuc3ba6ezrjl43tz2zmeyluabsvzqvrq4oyi7xno6wy
+
+leaderboard_abi.js
+Uploading files from leaderboard_abi.js
+Content added with CID: bafybeiaijtnpaalgyiqom4xfqnqpvl4bumjj336oxnphydlgclqj5a5u3m
+
+metaculusgaspred.png
+Uploading files from metaculusgaspred.png
+Content added with CID: bafybeidhrtet3uidj4rorsbaj4xsapvvzvabwhdrjfd2yn4hypkx2osmaa
+
+WHIPTAIL_logo.jpg
+Uploading files from WHIPTAIL_logo.jpg
+Content added with CID: bafybeids23j2luwf3ubptd4e2flb3n3enahy3q7zb3qxsu2weookm3gnba
+
+WHIPTAIL_logo2.jpg
+Uploading files from WHIPTAIL_logo2.jpg
+Content added with CID: bafybeidv73nwe3nslt5xfacqjok7xeuhho7lkfo74zpygdxdu2ze7yoa7y
+
 #If have to manually upload more files can just go web3.storage
 using mail id whiptail999@protonmail.com
 You will get a link sent to the mail id password : whip369tail 
