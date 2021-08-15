@@ -1,0 +1,353 @@
+@font-face {
+	font-family: 'Computer Modern Serif';
+	src: url('Serif/cmunrm.eot');
+	src: url('Serif/cmunrm.eot?#iefix') format('embedded-opentype'),
+		 url('Serif/cmunrm.woff') format('woff'),
+		 url('Serif/cmunrm.ttf') format('truetype'),
+		 url('Serif/cmunrm.svg#cmunrm') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'Computer Modern Serif';
+	src: url('Serif/cmunbx.eot');
+	src: url('Serif/cmunbx.eot?#iefix') format('embedded-opentype'),
+		 url('Serif/cmunbx.woff') format('woff'),
+		 url('Serif/cmunbx.ttf') format('truetype'),
+		 url('Serif/cmunbx.svg#cmunbx') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'Computer Modern Serif';
+	src: url('Serif/cmunti.eot');
+	src: url('Serif/cmunti.eot?#iefix') format('embedded-opentype'),
+		 url('Serif/cmunti.woff') format('woff'),
+		 url('Serif/cmunti.ttf') format('truetype'),
+		 url('Serif/cmunti.svg#cmunti') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+
+@font-face {
+	font-family: 'Computer Modern Serif';
+	src: url('Serif/cmunbi.eot');
+	src: url('Serif/cmunbi.eot?#iefix') format('embedded-opentype'),
+		 url('Serif/cmunbi.woff') format('woff'),
+		 url('Serif/cmunbi.ttf') format('truetype'),
+		 url('Serif/cmunbi.svg#cmunbi') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Computer Modern Serif Slanted';
+	src: url('Serif_Slanted/cmunsl.eot');
+	src: url('Serif_Slanted/cmunsl.eot?#iefix') format('embedded-opentype'),
+		 url('Serif_Slanted/cmunsl.woff') format('woff'),
+		 url('Serif_Slanted/cmunsl.ttf') format('truetype'),
+		 url('Serif_Slanted/cmunsl.svg#cmunsl') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'Computer Modern Serif Slanted';
+	src: url('Serif_Slanted/cmunbl.eot');
+	src: url('Serif_Slanted/cmunbl.eot?#iefix') format('embedded-opentype'),
+		 url('Serif_Slanted/cmunbl.woff') format('woff'),
+		 url('Serif_Slanted/cmunbl.ttf') format('truetype'),
+		 url('Serif_Slanted/cmunbl.svg#cmunbl') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+h1 {
+    font-family: 'Computer Modern Serif';
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Computer Modern Serif';
+}
+
+p {
+    font-family: 'Computer Modern Serif';
+    font-size: 18px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+
+    font-family: 'Computer Modern Serif';
+}
+
+li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 18px;
+}
+
+li a {
+    color: black;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    font-family: "Computer Modern Serif Slanted";
+}
+
+.active {
+    font-weight: bold;
+}
+
+#walletConnectedBtn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: "Computer Modern Serif";
+    font-size: 18px;
+}
+
+#walletConnectedBtn:hover {
+    font-family: "Computer Modern Serif Slanted";
+}
+
+#currentTimeStamp {
+    font-family: "Computer Modern Serif Slanted";
+}
+
+#cornerLogo {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+#heading {
+    margin-top: 100px;
+}
+
+#subheading {
+    font-family: "Computer Modern Serif Slanted";
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#questionSubmission {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 800px;
+    height: 240px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#questionSubmission h3 {
+    text-align: center;
+}
+
+#questionSubmission input {
+    width: 300px;
+    margin-bottom: 5px;
+    margin-left: 250px;
+}
+
+#questionSubmission button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: "Computer Modern Serif";
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 350px;
+}
+
+
+#questionsBlock {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.questionBox {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 800px;
+    height: 450px;
+    margin-bottom: 50px;
+
+}
+
+#data0Box {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+#data0Box p {
+    line-height: 0px;
+    font-style: italic;
+}
+
+.timeBox {
+    width: 400px;
+    height: 75px;
+    float: left;
+}
+
+#data1Box {
+    width: 200px;
+    height: 75px;
+    float: left;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.boundBox {
+    width: 400px;
+    height: 75px;
+}
+
+#data2Box {
+    width: 200px;
+    height: 75px;
+    float: left;
+    text-align: center;
+
+}
+
+#data3Box {
+    width: 200px;
+    height: 75px;
+    float: left;
+    text-align: center;
+}
+
+#data4Box {
+    width: 400px;
+    height: 130px;
+    float: right;
+
+    margin-top: -75px;
+
+}
+
+#data4Box h3 {
+    text-align: center;
+}
+
+#data4Box p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.answerTitle {
+    margin-top: 140px;
+    text-align: center;
+}
+
+.answerInput {
+    width: 200px;
+    margin-left: 300px;
+    margin-bottom: 10px;
+}
+
+.answerButton {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: "Computer Modern Serif";
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 350px;
+}
+
+.chartWrapper {
+    height: 200px;
+    width: 700px;
+
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.lineChart {
+
+    font-size: 20px;
+}
+
+/* Leaderboard Specific CSS */
+
+#leaderboardTable {
+  font-family: "Computer Modern Serif";
+  border-collapse: collapse;
+  width: 800px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#leaderboardTable th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+#leaderboardTable td {
+    font-family: "Computer Modern Serif Slanted";
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#leaderboardTable tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* About Page */
+#aboutText {
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 200px;
+}
+
+#aboutText img {
+    margin-left: 50px;
+
+    width: 1400px;
+    height: 600px;
+}
+

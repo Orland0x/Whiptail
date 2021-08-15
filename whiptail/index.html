@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Getting Web 3 Library -->
+        <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <!-- Calling ABI file for Contract -->
+        <script language="javascript" type="text/javascript" src="whiptail_abi.js"></script>
+        <!-- <script type="module" src="fs.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="fonts/Serif/cmun-serif.css"></link>
+        <link rel="stylesheet" href="style.css">
+        <title>Whiptail!</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/leaderboard.html">Leaderboard</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li style="float:right"><button id="walletConnectedBtn" onclick="connectWallet()">Connect Wallet</button></li>
+            <li style="float:right">Current Timestamp: <span id="currentTimeStamp"></span></li>
+        </ul>
+        <h1 id="heading">Whiptail!</h1>
+        <p id="subheading">"In the Midst of Chaos there is also Opportunity." - Sun Tzu</p>
+
+        <div id="questionSubmission" style="display: none;">
+            <h3>Admin Question Submission</h3>
+            <input type="text" placeholder="Question" id="questionInput"><br>
+            <input type="text" placeholder="Lower Bound" id="lowerBoundInput"><br>
+            <input type="text" placeholder="Upper Bound" id="upperBoundInput"><br>
+            <input type="text" placeholder="Submission End" id="submissionEndTimeInput"><br>
+            <button onclick="submitQuestion()">Submit!</button>
+        </div>
+
+        <div id="questionsBlock">
+
+        </div>
+
+        <h3 id="graphData"></h3>
+        <!--
+        <div class="chartWrapper">
+            <canvas class="lineChart" id="lineChart"></canvas>
+        </div>-->
+        <script>
+            // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+            if (typeof web3 !== 'undefined') {
+                // Use Mist/MetaMask's provider
+                //web3js = new Web3(web3.currentProvider);
+
+                // The line below states that the user has metamask installed
+                console.log("MetaMask Detected")
+
+                // The line below sets web3 to a variable name web3js
+                web3js = new Web3(ethereum);
+
+                // Connect to Wallet
+                ethereum.send('eth_requestAccounts');
+
+            } else {
+                // Handle the case where the user doesn't have Metamask installed
+                // Probably show them a message prompting them to install Metamask
+                console.log("MetaMask Not Detected")
+            }
+
+            // This is the address to the ropsten contract
+            var whiptailContractAddress = "0xD1c599dB3D3C4243482d6e1D61429eD5B4375bea";
+
+            // This initializes all the contracts functions
+            var whiptail = new web3js.eth.Contract(abi, whiptailContractAddress);
+            
+            // Function to connect wallet, Kinda Buggy!
+            async function connectWallet() {
+                const accounts = await web3js.eth.getAccounts()
+                console.log(accounts)
+                adminCheck(accounts[0])
+
+                if(accounts.length == 0){
+                    connectButton = document.getElementById("walletConnectedBtn")
+                    connectButton.innerHTML = "Connect Wallet"
+
+                }else{
+                    connectButton = document.getElementById("walletConnectedBtn")
+                    connectButton.innerHTML = "Wallet Connected"
+                }
+            }
+
+            // Check if User is Admin
+            function adminCheck(userWallet) {
+                adminWallet = "0xA7273F4C245b852C27Ae3a18F8c48c63aDd79dB6"
+
+                if(userWallet == adminWallet){
+                    console.log("user is admin")
+                    var adminSubmission = document.getElementById("questionSubmission");
+                    adminSubmission.style.display = "block";
+                }
+
+            }
+            adminCheck();
+
+
+            // Used in tandem with another function to get timestamp
+            async function getTimeStamp() {
+                return whiptail.methods.getTime().call()
+            }
+            //getTimeStamp();
+
+            // Used by get current timestamp button 
+            function callTimeStamp() {
+                getTimeStamp().then(function(result){
+                    
+                    var timeStampCurrent = document.getElementById("currentTimeStamp")
+                    timeStampCurrent.innerHTML = result;
+                    
+                    return result;
+                })
+            }
+            callTimeStamp();
+
+            async function largestID(){
+                return whiptail.methods.getNumOfQuestions().call()
+            }
+            //console.log(largestID())
+
+            async function Question(questionID){
+                return whiptail.methods.getQuestion(questionID).call()
+            }
+            
+            async function getQuestions(){
+                
+                var idShow = document.getElementById("getCurrentID")
+                const largeID = await largestID();
+                idShow.innerHTML = largeID
+                
+                console.log(question)
+                
+                table = document.getElementById("questionTable")
+                for (let questionCount = 0; questionCount < largeID; questionCount++) {
+                    let row = table.insertRow()
+                    var question = await Question(questionCount)
+                    for (let elementCount = 0; elementCount < 6; elementCount++) {
+                        let cell = row.insertCell()
+                        let text = document.createTextNode(question[elementCount])
+                        cell.appendChild(text)
+                        
+                    }
+
+                    
+                }
+                
+            }
+            //getQuestions();
+
+            async function questionFormatter(){
+                
+                const questionsBox = document.getElementById("questionsBlock")
+                const largeID = await largestID();
+                const dataBoxTitles = ["Question:", "Submissions End", "Lower Bound", "Upper Bound","Total Predictions"]
+                var currentTimeStamp = await getTimeStamp()
+                
+                for (let questionCount = 0; questionCount < largeID; questionCount++){
+                    var question = await Question(questionCount)
+                    var questionTimeStamp = await Question(questionCount)
+                    questionTimeStamp = questionTimeStamp[1]
+                    if(questionTimeStamp < currentTimeStamp && question[4] == 0){
+                        console.log("dead question")
+                    }else{
+                        let questionBox = document.createElement('div');
+                        questionBox.id = "question" + questionCount + "Box"
+                        questionBox.className = "questionBox"
+                        questionsBox.appendChild(questionBox)
+                        for (let elementCount = 0; elementCount < 5; elementCount++) {
+
+                            var dataBox = document.createElement('div');
+                            dataBox.id = "data"+elementCount+"Box";
+                            dataBox.className = "dataBox";
+
+                            var dataBoxTitle = document.createElement('h3');
+                            dataBoxTitle.id = "data"+elementCount+"Title";
+                            dataBoxTitle.className = "dataTitle";
+                            dataBoxTitle.innerText = dataBoxTitles[elementCount];
+
+                            var dataBoxContent = document.createElement('p');
+                            dataBoxContent.id = "data"+elementCount+"Content";
+                            dataBoxContent.className = "dataContent";
+                            dataBoxContent.innerText = question[elementCount];
+                            //console.log(question[elementCount])
+
+                            if(elementCount == 1){
+                                var formatBox = document.createElement('div')
+                                formatBox.className = "timeBox";
+
+                            } else if (elementCount == 2) {
+                                var formatBox = document.createElement('div')
+                                formatBox.className = "boundBox";
+
+                            } 
+
+                            if (elementCount == 0 || elementCount == 4){
+                                dataBox.appendChild(dataBoxTitle);
+                                dataBox.appendChild(dataBoxContent);
+                                questionBox.appendChild(dataBox);
+                            } else {
+                                dataBox.appendChild(dataBoxTitle);
+                                dataBox.appendChild(dataBoxContent);
+                                formatBox.appendChild(dataBox);
+                                questionBox.appendChild(formatBox);
+                            }
+                        }
+
+                        //var currentTimeStamp = await getTimeStamp()
+                        //console.log(currentTimeStamp)
+
+                        //var questionTimeStamp = await Question(questionCount)
+                        //questionTimeStamp = questionTimeStamp[1]
+                        //console.log(questionTimeStamp)
+
+                        if(questionTimeStamp < currentTimeStamp){
+                            var chartWrapper = document.createElement('div')
+                            chartWrapper.className = "chartWrapper"
+
+                            var chart = document.createElement('canvas')
+                            chart.className = "lineChart"
+                            chart.id = "lineChart"
+
+                            questionBox.appendChild(chartWrapper);
+                            chartWrapper.appendChild(chart);
+                        }else{
+                            var answerTitle = document.createElement('h3');
+                            answerTitle.id = "answer"+questionCount+"Title";
+                            answerTitle.className = "answerTitle";
+                            answerTitle.innerText = "Submit Answer!";
+
+                            var answerInput = document.createElement('input');
+                            answerInput.id = "answer"+questionCount+"Input";
+                            answerInput.className = "answerInput";
+
+                            var inputBreak = document.createElement('br');
+
+                            var answerButton = document.createElement('button');
+                            answerButton.id = "answer"+questionCount+"Button";
+                            answerButton.className = "answerButton";
+                            answerButton.innerText = "Submit!";
+                            answerButton.onclick = async function() {
+                                const accounts = await web3js.eth.getAccounts()
+                                
+                                questionID = questionCount;
+                                prediction = parseInt(document.getElementById("answer"+questionCount+"Input").value);
+                                return whiptail.methods.submitPrediction(questionID, prediction).send({from:accounts[0]})
+                            }
+
+                            questionBox.appendChild(answerTitle);
+                            questionBox.appendChild(answerInput);
+                            questionBox.appendChild(inputBreak);
+                            questionBox.appendChild(answerButton);
+                            
+                        }
+                    }    
+                    
+                }
+
+            }
+            questionFormatter()
+
+            // Used to submit question for the admin on website load
+            async function submitQuestion() {
+                const accounts = await web3js.eth.getAccounts()
+                // console.log(accounts[0])
+
+                questionData = document.getElementById("questionInput").value;
+                lowerData = parseInt(document.getElementById("lowerBoundInput").value);
+                upperData = parseInt(document.getElementById("upperBoundInput").value);
+                submissionEndData = parseInt(document.getElementById("submissionEndTimeInput").value);
+                //revealTimeData = parseInt(document.getElementById("revealTimeInput").value);
+
+                //console.log(questionData)
+                //console.log(lowerData)
+                //console.log(upperData)
+                //console.log(submissionEndData)
+                //console.log(revealTimeData)
+
+                getTimeStamp().then(function(result){
+                    return whiptail.methods.submitQuestion(questionData, lowerData, upperData, parseInt(result)+submissionEndData).send({from:accounts[0]})
+                })
+            }
+            //submitQuestion()
+
+            async function submitPrediction(questionID, inputID) {
+                const accounts = await web3js.eth.getAccounts()
+                
+                questionID = 0;
+                prediction = parseInt(document.getElementById(inputID).value);
+                return whiptail.methods.submitPrediction(questionID, prediction).send({from:accounts[0]})
+            }
+            //submitPrediction();
+
+            async function getPrediction(questionID, addressList){
+                var element = []
+                for (let count = 0; count < addressList.length; count++) {
+                    element.push(whiptail.methods.getPrediction(questionID, address[count]).call())
+                    
+                }
+                return element
+                //return whiptail.methods.getPrediction(questionID, address).call()
+            }
+
+            async function getAddresses(questionID){
+                return whiptail.methods.getAddresses(questionID).call()
+            }
+            //console.log(getAddresses(0));
+            
+            async function addressFormatter() {
+                var addressData = await getAddresses(0)
+                
+                // Get Addresses which submitted prediction
+                var formattedAddressList = []
+                for (let count = 0; count < addressData.length; count++) {
+                    const address = addressData[count];
+                    if(formattedAddressList.indexOf(address) == -1){
+                        formattedAddressList.push(address)
+                    }
+                } 
+
+                // Get Predictions of the addresses which submitted prediction
+                var element = []
+                for (let count = 0; count < formattedAddressList.length; count++) {
+                    element.push(await whiptail.methods.getPrediction(0, formattedAddressList[count]).call())
+                    
+                }
+
+                var predictionsList = element
+                predictionsList = predictionsList.sort((a, b) => a - b);
+
+                var individualPredictions = []
+                var predictionsCount = []
+
+                for (let count = 0; count < predictionsList.length; count++) {
+                    const item = predictionsList[count];
+                    if(individualPredictions.indexOf(item) == -1){
+                        individualPredictions.push(item)
+                    }
+                } 
+                
+                for (let i = 0; i < individualPredictions.length; i++) {
+                    var n = 0;
+                    for(j = 0; j < predictionsList.length; j++){
+                        if(predictionsList[j] == individualPredictions[i]){n++}
+                    }
+                    predictionsCount.push(n)
+                    
+                }
+
+                //console.log(individualPredictions)
+                //console.log(predictionsCount)
+
+                maxBound = 50000
+                lowerBound = 10000
+                resolution = 1000
+
+                graphLabels = []
+                // Generate list from lower bound to upper bound with step resolution
+                for (let step = 0; step <= maxBound; step+=resolution) {
+                    graphLabels.push(step)
+                }
+                //console.log(graphLabels)
+
+                dataSet = []
+                // Generate the dataSet
+                for (let zeroCount = 0; zeroCount <= (maxBound/resolution); zeroCount++) {
+                    dataSet.push(0)
+                    
+                }
+                //console.log(dataSet.length)
+
+                // Putting data in dataSet
+                for (let dataCount = 0; dataCount < individualPredictions.length; dataCount++) {
+                    var currentIndex = (individualPredictions[dataCount])/resolution
+                    dataSet[currentIndex] = predictionsCount[dataCount]
+
+                }
+                console.log(dataSet)
+
+
+                // The Chart
+                const labels = graphLabels;
+
+                const data = {
+                labels: labels,
+                datasets: [{
+                    backgroundColor: 'rgb(65,105,225)',
+                    borderColor: 'rgb(65,105,225)',
+                    data:  dataSet,
+                    }]
+                };
+
+                const config = {
+                    type: 'line',
+                    data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid:{
+                                    display:false
+                                }
+                            },
+                            y: {
+                                grid:{
+                                    display:false
+                                }
+                            }
+                                    
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        elements: {
+                            line: {
+                                tension: 0.3,
+                                borderWidth: 2
+                            },
+                            point: {
+                                radius: 0
+                            }
+                        }
+                    }
+                };
+
+                Chart.defaults.font.size = 10;
+                var myChart = new Chart(
+                    document.getElementById('lineChart'),
+                    config
+                );
+                                
+
+                /*
+                var singlePredictions = []
+                var predictionCount = []
+                console.log(predictionsList)
+                for (let prediction = 0; prediction < predictionsList.length; prediction++) {
+                    singlePredictions.push(predictionsList[prediction])
+                    singlePredictionCount = 0
+                    for (let i = 0; i < predictionsList.length; i++) {
+                        if(singlePredictions[prediction] == predictionsList[i]){
+                            singlePredictionCount = singlePredictionCount + 1;
+                        }
+                        
+                    }
+                    singlePredictions.push(singlePredictionCount)
+                    
+                    for (let j = 0; j < singlePredictionCount; j++) {
+                        predictionsList.shift();
+                        
+                    }
+
+                    //predictionsList.splice(0, singlePredictionCount)
+                    console.log(predictionsList)
+
+                    
+                }
+                console.log(singlePredictions)
+                console.log(predictionCount);
+                */
+                
+                
+                /*
+                var testDisplay = document.getElementById("graphData")
+                testDisplay.innerHTML = element
+                */
+
+                /*
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [12, 19, 3, 5, 2, 3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });*/
+                
+                
+                /*.then(function(result){
+                    var formattedAddressList = []
+                    for (let count = 0; count < result.length; count++) {
+                        const address = result[count];
+                        if(formattedAddressList.indexOf(address) == -1){
+                            formattedAddressList.push(address)
+                        }
+                        
+                    }
+                    //return formattedAddressList
+                    /*
+                    var element = []
+                    for (let count = 0; count < formattedAddressList.length; count++) {
+                        element.push(whiptail.methods.getPrediction(0, formattedAddressList[count]).call())
+                        
+                    }
+                    console.log(element)
+                    var testDisplay = document.getElementById("graphData")
+                    testDisplay.innerHTML = element
+                    */
+                    //return formattedAddressList;
+                //})
+                
+            }
+            addressFormatter()
+            
+            /*
+            addressFormatter().then(function(result){
+                console.log(getPrediction(0, result))
+            })*/
+            
+
+
+            
+
+
+        </script>
+    </body>
+</html>

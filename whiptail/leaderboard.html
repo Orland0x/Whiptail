@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Getting Web 3 Library -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <!-- Calling ABI file for Contract -->
+    <script language="javascript" type="text/javascript" src="leaderboard_abi.js"></script>
+    <!-- Style and Fonts -->
+    <link rel="stylesheet" href="fonts/Serif/cmun-serif.css"></link>
+    <link rel="stylesheet" href="style.css">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/" class="active">Leaderboard</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+        <h1 id="heading">Whiptail Leaderboard</h1>
+        <p id="subheading">"Take hold of the future or the future will take hold of you." - Patrick Dixon</p>
+        <h1>Reputation Leaderboard</h1>
+        <div id="leaderboardDiv">
+            <table id="leaderboardTable">
+                <tr>
+                    <th>Address</th>
+                    <th>Reputation</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            //web3js = new Web3(web3.currentProvider);
+
+            // The line below states that the user has metamask installed
+            console.log("MetaMask Detected")
+
+            // The line below sets web3 to a variable name web3js
+            web3js = new Web3(ethereum);
+
+            // Connect to Wallet
+            ethereum.send('eth_requestAccounts');
+
+        } else {
+            // Handle the case where the user doesn't have Metamask installed
+            // Probably show them a message prompting them to install Metamask
+            console.log("MetaMask Not Detected")
+        }
+
+        // This is the address to the ropsten contract
+        var leaderboardContractAddress = "0x825477C09DD57bb72298c3161B26eA577B2D0EDe";
+
+        // This initializes all the contracts functions
+        var leaderboard = new web3js.eth.Contract(leaderboard, leaderboardContractAddress);
+
+        function getAddresses() {
+            return leaderboard.methods.getAddresses().call()
+        }
+        //console.log(getAddresses())
+
+        function getReputation(address) {
+            return leaderboard.methods.getReputationScore(address).call()
+        }
+
+        async function generateLeaderboard() {
+            // Get Address List
+            var addressList = await getAddresses() 
+
+            // Get ReputationList
+            var reputationList = []
+            for (let i = 0; i < addressList.length; i++) {
+                var reputation = await getReputation(addressList[i]);
+                reputationList.push(reputation)
+                
+            }
+
+            table = document.getElementById("leaderboardTable")
+            for (let addressCount = 0; addressCount < addressList.length; addressCount++) {
+                let row = table.insertRow()
+                for (let reputationItem = 0; reputationItem < 2; reputationItem++) {
+                    let cell = row.insertCell()
+                    if(reputationItem == 0) {
+                        let text = document.createTextNode(addressList[addressCount])
+                        cell.appendChild(text)
+                    }else{
+                        let text = document.createTextNode(reputationList[addressCount])
+                        cell.appendChild(text)
+                    }
+                    
+                }
+            }
+            
+        }
+        generateLeaderboard()
+    </script>
+</body>
+</html>
