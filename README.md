@@ -53,13 +53,10 @@ As a team we will continually post competition questions, therefore allowing use
 
 ### Reputation Score Algorithm
 
-The gain in reputation that one should gain for a good prediction should be a function of both the difficulty of the prediction and the quality of the prediction. A good measure of the difficulty of prediction is the average distance of all entrants from the true answer. For the quality of a specific prediction, some function of the distance of the prediction from the true answer would be appropriate. The functional family plotted below is one possible option here that can be adjusted to fit the requirements specified above. In this case the true answer is zero and the score drops off as predictions get further from
-![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/predictionCurve.png)
-
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a})
+The gain in reputation that one should gain for a good prediction should be a function of both the difficulty of the prediction and the quality of the prediction. A good measure of the difficulty of prediction is the average distance of all entrants from the true answer. For the quality of a specific prediction, some function of the distance of the prediction from the true answer would be appropriate. The functional family plotted below is one possible option here that can be adjusted to fit the requirements specified above. In this case the true answer is zero and the score drops off as predictions get further from that point.
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/curve.png)
 
 
-$ \sum_{\forall i}{x_i^{2}} $
 
 
 ### Governance Token
