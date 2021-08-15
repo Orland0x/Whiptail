@@ -10,11 +10,9 @@ ReputationScore.sol: 0x825477C09DD57bb72298c3161B26eA577B2D0EDe
 
 ### Overview
 
-A well documented fact within the field of forecasting (see the book - Superforecasting: The Art and Science of Prediction) is that the average of a group of forecasters' predictions is, over a long enough time-frame, better than any individual's set of forecasts. The principal cause of this is that forecasters are human and therefore sometimes make mistakes or do not use all the information availble to them. The process of averaging out the forecasts will reduce the affect of any single mistakes leading to a more accurate and robust forecast. 
-
-We therefore propose a forecasting DAO to take advantage of this fact which would work as follows: A group of forecasters all create forecasts for an event and send them to a smart contract. The overall forecast would be the average of all the individuals forecasts. This forecast could then be used to make money in prediction markets or sold off to 3rd parties such as hedge funds, profits would then be distributed to the forecasters through another smart contract. 
-
 A well documented fact within the field of forecasting is that the average of a group of forecasters' predictions is, over a long enough time-frame, better than any individual's set of forecasts. This is because each forecaster will apply a slightly different mental model when attempting to create the forecast and will therefore assign different likelihoods for the same outcome. The process of averaging out the forecasts will reduce the effect of mistakes in any single forecasters model leading to a more accurate and robust forecast. We belive that a forecasting DAO would be affective at taking advantage of this fact, allowing coordination of a geographically separated group of people in a  decentralized and trustless manner. 
+
+The DAO would work as follows: A group of forecasters all create forecasts for an event and send them to a smart contract. The overall forecast would be the average of all the individuals forecasts. This forecast could then be used to make money in prediction markets or sold off to 3rd parties such as hedge funds, profits would then be distributed to the forecasters through another smart contract.
 
 ### Motivation and Philosophy 
 
@@ -55,9 +53,13 @@ As a team we will continually post competition questions, therefore allowing use
 
 ### Reputation Score ALgorithm 
 
-The gain in reputation that one should gain for a good prediction should be a function of both the difficulty of the prediction and the quality of the prediction. A good measure of the difficulty of prediction is he average distance of all entrants from the true answer. For the quality of a specific prediction, some function of the distance of the prediction from the true answer. The functional family and two instances plotted below is one possible option here that can be adjisted via the parameters to fit the requirements specified above. 
-![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/curve.png)
+The gain in reputation that one should gain for a good prediction should be a function of both the difficulty of the prediction and the quality of the prediction. A good measure of the difficulty of prediction is he average distance of all entrants from the true answer. For the quality of a specific prediction, some function of the distance of the prediction from the true answer would be appropriate. The functional family plotted below is one possible option here that can be adjisted to fit the requirements specified above. In this case the true answer is zero and the score drops off as predictions get further from 
+![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/predictionCurve.png)
 
+![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
+
+
+$ \sum_{\forall i}{x_i^{2}} $
 
 
 ### Governance Token 
