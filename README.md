@@ -14,6 +14,8 @@ A well documented fact within the field of forecasting (see the book - Superfore
 
 We therefore propose a forecasting DAO to take advantage of this fact which would work as follows: A group of forecasters all create forecasts for an event and send them to a smart contract. The overall forecast would be the average of all the individuals forecasts. This forecast could then be used to make money in prediction markets or sold off to 3rd parties such as hedge funds, profits would then be distributed to the forecasters through another smart contract. 
 
+A well documented fact within the field of forecasting is that the average of a group of forecasters' predictions is, over a long enough time-frame, better than any individual's set of forecasts. This is because each forecaster will apply a slightly different mental model when attempting to create the forecast and will therefore assign different likelihoods for the same outcome. The process of averaging out the forecasts will reduce the effect of mistakes in any single forecasters model leading to a more accurate and robust forecast. We belive that a forecasting DAO would be affective at taking advantage of this fact, allowing coordination of a geographically separated group of people in a  decentralized and trustless manner. 
+
 ### Motivation and Philosophy 
 
 We believe that the true value of forecasting goes far beyond point estimates of events. In fact the most value lies in the full distribution (more specifically, a posterior distribution - for the bayesian inclined readers) over event outcomes and not just point prediction that represents the single most likely outcome (which would be the modal value of the curve). An example shown below is from the forecast aggregation site Metaculus for predicting the gas price 1 week after the heavily anticipted Ethereum update EIP-1559. 
@@ -22,7 +24,8 @@ We believe that the true value of forecasting goes far beyond point estimates of
 
 A modal value of about 30 gwei is predicted by the forecasters but what is more interesting is the long tail on the right of the distribution. This shows that the forecasters assign non-negligible probabilities to gas prices that are far from the point prediction of 30.  This tail information is in many contexts far more valuable than the peak. For example, if you are a protocol that has smart contracts which depend on the gas price remaining below 100, having an estimate on the likelihood of it exceeding 100 would be immensely valuable to you.
 
-Our goal with Whiptail is to create a decentralized forecasting engine that can provide robust and on demand forecasts in a wide range of different domains. We believe there would be interest in these forecasts from various organizations including hedge funds, bookies, governments, and even other DAOs. Additionally, the information could be used to trade in prediction markets directly to make profit for the DAO, however this would require an in house trading team and would therefore be significantly more difficult to set up (initially at least!).
+Our goal with Whiptail is to create a decentralized forecasting engine that can provide robust and on demand forecasts in a wide range of different domains. Metaculus has no way to keep the forecasts private and also no way to monetized them. As we shall explain, Whiptail DAO solves both of those problems in a decentralized and trustless manner. We believe there would be interest in these forecasts from various organizations including hedge funds, bookies, governments, and even other DAOs. Additionally, the information could be used to trade in prediction markets directly to make profit for the DAO, however this would require an in house trading team and would therefore be significantly more difficult to set up initially. Note that our name Whiptail comes from the Whiptail shark which has a tail that looks something like the distribution shown if you tilt your head a bit! 
+
 
 ### Forecast Submission Mechanism
 
@@ -38,11 +41,11 @@ We therefore prepose a private submission mechanism that utilizes Public-key Cry
 The forecasts produced by the DAO may be for events long into to future and therefore the DAO would require payement before the event has occured. For this reason the payment to the forecasters cannot be a function of their forecast accuracy. However the buyer would still need confidence that the forecasts they paid for are high quality. This leads us to the concept of a reputation score for forecasters. 
  
 
-### Reputation Score Accumulation 
+### Reputation Accumulation 
 
-To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut off of a reputation score of at least X in order to qualify for the forecasting DAO where members are paid for their forecasts. 
+To ensure that the forecasters in the DAO are all high quality, we needed a way to test their ability in an on-chain trustless manner. We therefore prepose a forecasting reputation score that is associated with your ethereum address which you can build up over time. We can create a cut-off reputation score of at least X in order to qualify for the forecasting DAO where members are paid for their forecasts. Note that this can be varied and is fully up to the desires of the buyer.
 
-To allow people to build up their scores, we prepose a series of prediction competitions which users predict various events that will occur in the future and recieve positive or negative points depending on how close they are to the true answer when the event occurs. This will be done through a commit reveal smart contract that works as follows: 
+To allow people to build up their scores, we prepose a series of prediction competitions where users predict various events that will occur in the future and recieve positive or negative points depending on how close they are to the true answer when the event occurs. This will be done through a commit reveal smart contract that works as follows: 
 1. A question is submitted by the smart contract owners (the Whiptail team). Eg "How many new UK covid cases will the UK government declare on the 17th August."  The creator will also specify a commit period where all hash commits must take place, a reveal period where all reveals must take place, and finally a range for the prediction that will cover the expected range of the answer.  
 2. Users will generate hashes of their predictions along with blinding factors and commit it to the smart contract during the commit window.
 3. Users will send their predictions and blinding factors to the contract during the reveal window and the hash will be performed on chain to prove that it is identical to their commit.
@@ -50,7 +53,9 @@ To allow people to build up their scores, we prepose a series of prediction comp
 
 As a team we will continually post competition questions, therefore allowing users to slowly build up (or destroy!) their reputation. Our scoring algorithm will be weakly negative sum which, over a long enough time period, should be an effective system for differentiating good forecasters from average ones. The chance of qualifying for the paid forecasting team would be a strong motivator in itself for entering these competitions, however we have considered extra incentives like prizes that are paid from the DAO treasury - somewhat like a football team investing in young talent. The core idea here is to use verifiable events to find people that are strong at forecasting un-verifiable events and record this through an on chain score.
 
+### Reputation Score ALgorithm 
 
+The gain in reputation that one should gain for a good prediction should be a function of both the difficulty of the prediction and the quality of the prediction. A good measure of the difficulty of prediction is he average distance of all entrants from the true answer. For the quality of a specific prediction, some function of the distance of the prediction from the true answer. The functional family plotted below is one possible option here that can be adjisted to fit the requirements specified above. 
 ![alt text](https://github.com/orlandothefraser/Whiptail/blob/main/media/predictionCurve.png)
 
 ![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
