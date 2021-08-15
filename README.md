@@ -3,7 +3,7 @@ A DAO for forecasting that harnesses the wisdom of the crowd.
 
 The Brownie development was used for the creation and testing of the smart contracts used in the project. The contracts have been deployed to Ropsten test net and reside at the following locations: 
 
-PredictionSubmission.sol: 0xa505E0D24Ef6d65cD57ad1c6Bb17EBd3547934Fe
+PredictionSubmission.sol: 0xa505E0D24Ef6d65cD57ad1c6Bb17EBd3547934Fe //
 ReputationScore.sol: 0x825477C09DD57bb72298c3161B26eA577B2D0EDe 
 
 
