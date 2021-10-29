@@ -1,5 +1,5 @@
 # Whiptail
-Exploring an idea for a DAO for forecasting that harnesses the wisdom of the crowd.
+A DAO for forecasting that harnesses the wisdom of the crowd.
 
 The Brownie development was used for the creation and testing of the smart contracts used in the project. The contracts have been deployed to Ropsten test net and reside at the following locations:
 
