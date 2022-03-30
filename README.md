@@ -31,7 +31,6 @@ If the forecasts produced by the DAO were public then there would be a free-ride
 
 We therefore propose to utilize a Homomorphic encryption enable the aggregation to occur directly on the encrypted data. 
 
-We therefore propose a private submission mechanism that utilizes Public-key Cryptography. It will work as follows:
 1. A public and private key pair is generated off chain.
 2. The public key is sent on chain and the private key is sent to the buyer of the forecast off chain.
 3. All forecasters that are participating will encrypt their forecast using the public key and then send the encrypted message on chain.
